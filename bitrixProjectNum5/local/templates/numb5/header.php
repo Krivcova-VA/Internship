@@ -64,6 +64,7 @@ IncludeTemplateLangFile(__FILE__);
                         </td>
                     </tr>
                 </table>
+                <?if($APPLICATION->GetCurPage() != '/admin/'):?>
                 <div class="nv_topnav">
                     <ul>
                         <li><a href=""   class="menu-img-fon"  style="background-image: url(images/nv_home.png);" ><span></span></a></li>
@@ -95,6 +96,7 @@ IncludeTemplateLangFile(__FILE__);
                         <div class="clearboth"></div>
                     </ul>
                 </div>
+                <?endif;?>
             </div>
         </div>
 
@@ -112,5 +114,5 @@ IncludeTemplateLangFile(__FILE__);
                 <div class="mn_content">
                     <div class="main_post">
                         <div class="main_title">
-                            <p class="title">Заголовок страницы</p>
+                            <p class="title"><?$APPLICATION->ShowTitle('h1')?></p>
                         </div>
