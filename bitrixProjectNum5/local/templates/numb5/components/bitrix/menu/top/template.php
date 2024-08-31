@@ -12,7 +12,7 @@ if (empty($arResult["ALL_ITEMS"]))
 		<?foreach($arResult["MENU_STRUCTURE"] as $itemID => $arColumns):?>     <!-- first level-->
 			<li>
 				<a href="<?=$arResult["ALL_ITEMS"][$itemID]["LINK"]?>">
-					<?=$arResult["ALL_ITEMS"][$itemID]["TEXT"]?>
+					<span><?=$arResult["ALL_ITEMS"][$itemID]["TEXT"]?></span>
 				</a>
                 <?if (is_array($arColumns) && count($arColumns) > 0):?>
 				<?foreach($arColumns as $key=>$arRow):?>
