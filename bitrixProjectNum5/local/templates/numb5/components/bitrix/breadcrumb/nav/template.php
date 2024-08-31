@@ -19,16 +19,15 @@ for($index = 0; $index < $itemSize; $index++)
 {
 	$title = htmlspecialcharsex($arResult[$index]["TITLE"]);
 
-	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1)
-	{
+//	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1)
+//	{
 		$strReturn .= '
-			<li><a href="'.$arResult[$index]["LINK"].'">'.$title.'</a>
-			</li>';
-	}
-	else
-	{
-		$strReturn .= $title;
-	}
+			<li><a href="'.$arResult[$index]["LINK"].'">'.$title.'</a></li>';
+//	}
+//	else
+//	{
+//		$strReturn .= $title;
+//	}
 }?>
     </ul>
     <div class="clearboth"></div>
