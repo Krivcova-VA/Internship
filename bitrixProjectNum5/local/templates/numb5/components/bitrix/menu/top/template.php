@@ -8,7 +8,7 @@ if (empty($arResult["ALL_ITEMS"]))
 ?>
 
 	<ul>
-        <li><a href="/"   class="menu-img-fon"  style="background-image: url(images/nv_home.png);" ><span></span></a></li>
+        <li><a href="/"   class="menu-img-fon"  style="background-image: url(<?=SITE_TEMPLATE_PATH?>/images/nv_home.png);" ><span></span></a></li>
 		<?foreach($arResult["MENU_STRUCTURE"] as $itemID => $arColumns):?>     <!-- first level-->
 			<li>
 				<a href="<?=$arResult["ALL_ITEMS"][$itemID]["LINK"]?>">
