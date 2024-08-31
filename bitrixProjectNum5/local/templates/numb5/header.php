@@ -108,7 +108,7 @@ IncludeTemplateLangFile(__FILE__);
         </div>
 
         <!--- // end header area --->
-        <div class="bc_breadcrumbs">
+
             <ul>
                 <li><a href="">Каталог</a></li>
                 <li><a href="">Мебель</a></li>
@@ -116,6 +116,7 @@ IncludeTemplateLangFile(__FILE__);
             </ul>
             <div class="clearboth"></div>
         </div>
+
         <div class="main_container page">
             <div class="mn_container">
                 <div class="mn_content">
