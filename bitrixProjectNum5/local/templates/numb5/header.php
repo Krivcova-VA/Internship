@@ -108,15 +108,20 @@ IncludeTemplateLangFile(__FILE__);
         </div>
 
         <!--- // end header area --->
-        <?$APPLICATION->IncludeComponent(
-            "bitrix:breadcrumb",
-            "nav",
-            Array(
-                "PATH" => "",
-                "SITE_ID" => "s1",
-                "START_FROM" => "0"
-            )
-        );?>
+        <div class="bc_breadcrumbs">
+            <ul>
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:breadcrumb",
+                "nav",
+                Array(
+                    "PATH" => "",
+                    "SITE_ID" => "s1",
+                    "START_FROM" => "0"
+                )
+            );?>
+            </ul>
+            <div class="clearboth"></div>
+        </div>
 
         <div class="main_container page">
             <div class="mn_container">
