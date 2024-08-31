@@ -32,7 +32,7 @@ IncludeTemplateLangFile(__FILE__);
                                     "AREA_FILE_SHOW" => "file",
                                     "AREA_FILE_SUFFIX" => "",
                                     "EDIT_TEMPLATE" => "",
-                                    "PATH" => "/home/bitrix/www/local/include/name.php"
+                                    "PATH" => "/local/include/name.php"
                                 )
                             );?>
 
@@ -45,7 +45,7 @@ IncludeTemplateLangFile(__FILE__);
                                     "AREA_FILE_SHOW" => "file",
                                     "AREA_FILE_SUFFIX" => "",
                                     "EDIT_TEMPLATE" => "",
-                                    "PATH" => "/home/bitrix/www/local/include/telef.php"
+                                    "PATH" => "/local/include/telef.php"
                                 )
                             );?>
                             <br/>
