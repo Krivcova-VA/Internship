@@ -1,8 +1,25 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
-                    </div>
+					</div>
                 </div>
-                <div class="sb_sidebar">
+        <div class="sb_sidebar">
             <div class="sb_nav">
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:menu",
+                "left",
+                Array(
+                    "ALLOW_MULTI_SELECT" => "N",
+                    "CHILD_MENU_TYPE" => "left",
+                    "DELAY" => "N",
+                    "MAX_LEVEL" => "1",
+                    "MENU_CACHE_GET_VARS" => array(""),
+                    "MENU_CACHE_TIME" => "3600",
+                    "MENU_CACHE_TYPE" => "N",
+                    "MENU_CACHE_USE_GROUPS" => "Y",
+                    "ROOT_MENU_TYPE" => "left",
+                    "USE_EXT" => "Y"
+                )
+            );?>
+            <!--
                 <ul>
                     <li class="close"><a href=""><span>Каталог</span></a></li>
                     <li class="close"><a href=""><span>Кухни</span></a></li>
@@ -27,7 +44,7 @@
                             <li><a href="">Детские</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul>-->
             </div>
             <div class="sb_event">
                 <div class="sb_event_header"><h4>Ближайшие события</h4></div>
