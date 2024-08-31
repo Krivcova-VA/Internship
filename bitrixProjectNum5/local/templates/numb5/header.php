@@ -81,35 +81,7 @@ IncludeTemplateLangFile(__FILE__);
                             "ROOT_MENU_TYPE" => "top",
                             "USE_EXT" => "Y"
                         )
-                    );?><!--<ul>
-                        <li><a href=""   class="menu-img-fon"  style="background-image: url(images/nv_home.png);" ><span></span></a></li>
-                        <li><a href=""><span>Компания</span></a>
-                            <ul>
-                                <li><a href="">Пункт 1</a></li>
-                                <li><a href="">Пункт 2</a></li>
-                                <li><a href="">Пункт 3</a></li>
-                                <li><a href="">Пункт 4</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=""><span>Новости</span></a></li>
-                        <li><a href=""><span>Каталог</span></a></li>
-                        <li><a href=""><span>Акции</span></a>
-                            <ul>
-                                <li><a href="">Пункт 1</a>
-                                    <ul>
-                                        <li><a href="">Пункт 1</a></li>
-                                        <li><a href="">Пункт 2</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="">Пункт 2</a></li>
-                                <li><a href="">Пункт 3</a></li>
-                                <li><a href="">Пункт 4</a></li>
-                            </ul>
-                        </li>
-                        <li><a href=""><span>Партнерам</span></a></li>
-                        <li><a href=""><span>Контакты</span></a></li>
-                        <div class="clearboth"></div>
-                    </ul>-->
+                    );?>
                 </div>
 
             </div>
