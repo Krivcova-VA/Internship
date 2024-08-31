@@ -10,8 +10,31 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
+
 $this->setFrameMode(true);
 ?>
+<style>
+#more {
+    diplay: none;
+}
+</style>
+<script>
+    function showMore() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("btn");
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Показать больше";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Показать меньше";
+            moreText.style.display = "inline";
+        }
+    }
+</script>
+
 <div class="news-list">
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
@@ -58,7 +81,9 @@ $this->setFrameMode(true);
 			<?endif;?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10));?>
+        <?echo '<p>'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10)).'</span>
+</p>
+<button onclick="showMore()" id="btn">Показать больше</button>';?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
 			<div style="clear:both"></div>
