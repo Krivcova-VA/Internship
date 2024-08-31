@@ -14,6 +14,7 @@ if (empty($arResult["ALL_ITEMS"]))
 				<a href="<?=$arResult["ALL_ITEMS"][$itemID]["LINK"]?>">
 					<?=$arResult["ALL_ITEMS"][$itemID]["TEXT"]?>
 				</a>
+                <?if (is_array($arColumns) && count($arColumns) > 0):?>
 				<?foreach($arColumns as $key=>$arRow):?>
 								<ul>
 									<?foreach($arRow as $itemIdLevel_2=>$arLevel_3):?>  <!-- second level-->
