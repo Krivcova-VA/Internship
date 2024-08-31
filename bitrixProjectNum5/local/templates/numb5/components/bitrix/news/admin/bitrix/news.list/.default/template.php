@@ -66,7 +66,22 @@ $this->setFrameMode(true);
                 diplay: none;
             }
         </style>
-
+        <script>
+            function showMore() {
+                var dots = document.getElementById("dots");
+                var moreText = document.getElementById("more");
+                var btnText = document.getElementById("btn");
+                if (dots.style.display === "none") {
+                    dots.style.display = "inline";
+                    btnText.innerHTML = "Показать больше";
+                    moreText.style.display = "none";
+                } else {
+                    dots.style.display = "none";
+                    btnText.innerHTML = "Показать меньше";
+                    moreText.style.display = "inline";
+                }
+            }
+        </script>
         <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...
  </span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10)).'</span>';?>
         <button onclick="showMore()" id="btn">Показать больше</button>
