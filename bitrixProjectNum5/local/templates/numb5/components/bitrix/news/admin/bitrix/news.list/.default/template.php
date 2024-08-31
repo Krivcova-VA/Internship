@@ -34,6 +34,9 @@ $this->setFrameMode(true);
         }
     }
 </script>
+<?php
+$test = implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10)).'</span>
+'?>
 
 <div class="news-list">
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
@@ -81,31 +84,31 @@ $this->setFrameMode(true);
 			<?endif;?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-        <?echo '<p>'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10)).'</span>
-</p>
-<button onclick="showMore()" id="btn">Показать больше</button>';?>
-		<?endif;?>
-		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
-			<div style="clear:both"></div>
-		<?endif?>
-		<?foreach($arItem["FIELDS"] as $code=>$value):?>
-			<small>
-			<?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?>
-			</small><br />
-		<?endforeach;?>
-		<?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-			<small>
-			<?=$arProperty["NAME"]?>:&nbsp;
-			<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-				<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-			<?else:?>
-				<?=$arProperty["DISPLAY_VALUE"];?>
-			<?endif?>
-			</small><br />
-		<?endforeach;?>
-	</p>
-<?endforeach;?>
-<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-	<br /><?=$arResult["NAV_STRING"]?>
-<?endif;?>
-</div>
+        <?echo $test;?>
+        <button onclick="showMore()" id="btn">Показать больше</button>
+        <?endif;?>
+        <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
+            <div style="clear:both"></div>
+        <?endif?>
+        <?foreach($arItem["FIELDS"] as $code=>$value):?>
+            <small>
+                <?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?>
+            </small><br />
+        <?endforeach;?>
+        <?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+            <small>
+                <?=$arProperty["NAME"]?>:&nbsp;
+                <?if(is_array($arProperty["DISPLAY_VALUE"])):?>
+                    <?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
+                <?else:?>
+                    <?=$arProperty["DISPLAY_VALUE"];?>
+                <?endif?>
+            </small><br />
+        <?endforeach;?>
+        </p>
+    <?endforeach;?>
+        <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+            <br /><?=$arResult["NAV_STRING"]?>
+        <?endif;?>
+    </div>
+
