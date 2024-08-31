@@ -66,7 +66,22 @@ IncludeTemplateLangFile(__FILE__);
                 </table>
 
                 <div class="nv_topnav">
-                    <ul>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "top",
+                        Array(
+                            "ALLOW_MULTI_SELECT" => "N",
+                            "CHILD_MENU_TYPE" => "left",
+                            "DELAY" => "N",
+                            "MAX_LEVEL" => "3",
+                            "MENU_CACHE_GET_VARS" => array(""),
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_TYPE" => "A",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "ROOT_MENU_TYPE" => "top",
+                            "USE_EXT" => "Y"
+                        )
+                    );?><!--<ul>
                         <li><a href=""   class="menu-img-fon"  style="background-image: url(images/nv_home.png);" ><span></span></a></li>
                         <li><a href=""><span>Компания</span></a>
                             <ul>
@@ -94,7 +109,7 @@ IncludeTemplateLangFile(__FILE__);
                         <li><a href=""><span>Партнерам</span></a></li>
                         <li><a href=""><span>Контакты</span></a></li>
                         <div class="clearboth"></div>
-                    </ul>
+                    </ul>-->
                 </div>
 
             </div>
