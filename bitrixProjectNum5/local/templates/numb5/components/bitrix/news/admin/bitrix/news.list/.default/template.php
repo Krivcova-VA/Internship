@@ -12,7 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-
 <div class="news-list">
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
@@ -55,11 +54,11 @@ $this->setFrameMode(true);
 			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
 				<a href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><b><?echo $arItem["NAME"]?></b></a><br />
 			<?else:?>
-				<b><?echo  $arItem["NAME"]?></b><br />
+				<b><?echo $arItem["NAME"]?></b><br />
 			<?endif;?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-			<?echo  implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0, 10));?>
+			<?echo $arItem["PREVIEW_TEXT"];?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
 			<div style="clear:both"></div>
