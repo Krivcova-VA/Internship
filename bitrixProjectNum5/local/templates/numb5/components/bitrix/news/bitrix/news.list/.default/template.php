@@ -12,23 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
-</script>
-<script>
-$(function ()
-	{  var h = 50, t = $('#ta'), max = t[0].scrollHeight, min = 22;
-   $('.read-next').on('click', function (event)
-  {
-   var H = t.height();
-   if(H == max){H = min}
-   else if (H  + h > max){H = max}
-   else {H += h};
-   t.height(H);
-   $(this).text(H == max ? 'Скрыть этот бред' : 'Читать далее...')
-   return false
-  })
-  })
-</script>
 
 <div class="news-list">
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
@@ -76,7 +59,7 @@ $(function ()
 			<?endif;?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-			<?echo '<div id="ta">'.$arItem["PREVIEW_TEXT"].'</div><a class="read-next" href="#">Читать далее...</a>';?>
+			<?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0, 10));?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
 			<div style="clear:both"></div>
