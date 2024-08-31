@@ -59,7 +59,7 @@ $this->setFrameMode(true);
 			<?endif;?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-			<?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0, 10));?>
+			<?echo  implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0, 10));?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
 			<div style="clear:both"></div>
