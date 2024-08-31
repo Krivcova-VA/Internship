@@ -32,7 +32,7 @@ IncludeTemplateLangFile(__FILE__);
                                     "AREA_FILE_SHOW" => "file",
                                     "AREA_FILE_SUFFIX" => "inc",
                                     "EDIT_TEMPLATE" => "",
-                                    "PATH" => "<?=SITE_TEMPLATE_PATH?>/local/include/name.php"
+                                    "PATH" => "local/include/name.php"
                                 )
                             );?>
 
@@ -45,7 +45,7 @@ IncludeTemplateLangFile(__FILE__);
                                     "AREA_FILE_SHOW" => "file",
                                     "AREA_FILE_SUFFIX" => "inc",
                                     "EDIT_TEMPLATE" => "",
-                                    "PATH" => "<?=SITE_TEMPLATE_PATH?>/local/include/telef.php"
+                                    "PATH" => "local/include/telef.php"
                                 )
                             );?>
                             <br/>
