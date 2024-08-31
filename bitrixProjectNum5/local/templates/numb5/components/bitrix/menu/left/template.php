@@ -1,7 +1,8 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <?if (!empty($arResult)):?>
-<ul>
+<div class="sb_nav">
+    <ul>
 
 <?
 foreach($arResult as $arItem):
@@ -16,5 +17,6 @@ foreach($arResult as $arItem):
 	
 <?endforeach?>
 
-</ul>
+    </ul>
+</div>
 <?endif?>
