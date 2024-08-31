@@ -96,18 +96,6 @@ $(function ()
 			<?endif?>
 			</small><br />
 		<?endforeach;?>
-        <script>
-            $('#more').on("click", function() {
-            if ($(this).text() === 'Скрыть все') {
-            $(this).text('Показать все')
-            } else {
-            $(this).text('Скрыть все')
-            }
-            });
-            $('#more').text('Скрыть все');
-        </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <div id="more"/>
 	</p>
 <?endforeach;?>
 <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
