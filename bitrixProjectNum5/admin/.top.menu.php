@@ -2,11 +2,11 @@
 <?
 $aMenuLinks = Array(
     Array(
-        "Главная",
-        "/",
+        "Админ",
+        "/admin/",
         Array(),
         Array(),
-        ""
-    ),
+        "CSite::InDir('/admin/')"
+    )
 );
 ?>
