@@ -19,32 +19,6 @@
                         "USE_EXT" => "Y"
                     )
                 );?>
-            <!--
-                <ul>
-                    <li class="close"><a href=""><span>Каталог</span></a></li>
-                    <li class="close"><a href=""><span>Кухни</span></a></li>
-                    <li class="close"><a href=""><span>Гарнитуры</span></a></li>
-                    <li class="open current">
-                        <span class="sb_showchild"></span>
-                        <a href=""><span>Спальни</span></a>
-                        <ul>
-                            <li><a href="">Одноместрые</a></li>
-                            <li><a href="">Двухместные</a></li>
-                            <li><a href="">Детские</a></li>
-                        </ul>
-                    </li>
-                    <li class="close"><a href=""><span>Кухни</span></a></li>
-                    <li class="close"><a href=""><span>Гарнитуры</span></a></li>
-                    <li class="close">
-                        <span class="sb_showchild"></span>
-                        <a href=""><span>Спальни</span></a>
-                        <ul>
-                            <li><a href="">Одноместрые</a></li>
-                            <li><a href="">Двухместные</a></li>
-                            <li><a href="">Детские</a></li>
-                        </ul>
-                    </li>
-                </ul>-->
 
             <div class="sb_event">
                 <div class="sb_event_header"><h4>Ближайшие события</h4></div>
