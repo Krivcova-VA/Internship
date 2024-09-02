@@ -83,7 +83,7 @@ $this->setFrameMode(true);
         <script>
             function showMore() {
                 $(document).ready(function () {
-                    $('.'+'<?=$arItem["ID"]?>'+'more').toggle();
+                    $('.'+'<?=$arItem["ID"]?>'+'more').hide();
                     $('.'+'<?=$arItem["ID"]?>'+'qq').click(function () {
                         $(this).next().slideToggle();
                     });
