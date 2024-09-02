@@ -69,7 +69,7 @@ $this->setFrameMode(true);
                 var btnText = document.getElementById("btn");
                 if (dots.style.display === "none") {
                     dots.style.display = "inline";
-                    btnText.innerHTML = "Показать больше";
+                    btnText.innerHTML  = "Показать больше";
                     moreText.style.display = "none";
                 } else {
                     dots.style.display = "none";
