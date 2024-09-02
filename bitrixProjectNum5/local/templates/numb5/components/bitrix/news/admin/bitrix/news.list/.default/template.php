@@ -83,8 +83,8 @@ $this->setFrameMode(true);
         <script>
             function showMore() {
                 $(document).ready(function () {
-                    $('.qwe').hide();
-                    $('.more').click(function () {
+                    $('.more').toggle();
+                    $('.qwe').click(function () {
                         $(this).next().slideToggle();
                     });
                 });
