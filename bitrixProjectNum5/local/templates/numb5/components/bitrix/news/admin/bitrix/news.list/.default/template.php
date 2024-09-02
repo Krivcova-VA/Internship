@@ -81,7 +81,7 @@ $this->setFrameMode(true);
         </script>
 
 
-        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10, 20)).'</span>';?>
+        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
         <button onclick="showMore()" id="<?=$arItem['ID']?>">Показать больше</button>
         <?//echo '<pre>'.htmlspecialchars(print_r($arItem, true)).'</pre>';?>
         <?endif;?>
