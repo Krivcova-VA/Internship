@@ -67,7 +67,7 @@ $this->setFrameMode(true);
             function showMore() {
                 var dots = document.getElementById("dots");
                 var moreText = document.getElementById("more");
-                var btnText = '<?php echo $arItem['ID']?>';
+                var btnText = document.getElementById('<?php echo $arItem['ID']?>');
                 if (dots.style.display === "none") {
                     dots.style.display = "inline";
                     btnText.innerHTML  = "Показать больше";
