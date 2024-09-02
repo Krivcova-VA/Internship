@@ -83,15 +83,15 @@ $this->setFrameMode(true);
         <script>
             function showMore() {
                 $(document).ready(function () {
-                    $('.<?=$arItem['ID']&'more'?>').hide();
-                    $(".<?=$arItem['ID']?>").click(function () {
+                    $('.more').hide();
+                    $('.qwe').click(function () {
                         $(this).next().slideToggle();
                     });
                 });
             }
         </script>
-        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span class="'.$arItem['ID'].'more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
-        <button onclick="showMore()" class="<?=$arItem['ID']?>">Показать больше</button>
+        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span class="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
+        <button onclick="showMore()" class="qwe">Показать больше</button>
 
         <?endif;?>
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
