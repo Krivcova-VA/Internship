@@ -11,5 +11,5 @@ div.news-list img.preview_picture
 	color:#486DAA;
 }
 .more {
-	diplay: none;
+	overflow: hidden;
 }
