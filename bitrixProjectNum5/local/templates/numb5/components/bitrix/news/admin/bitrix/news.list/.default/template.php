@@ -63,11 +63,11 @@ $this->setFrameMode(true);
 		<?endif;?>
 		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
 
-        <script>
+        <!--<script>
             function showMore() {
                 var dots = document.getElementById("dots");
                 var moreText = document.getElementById("more");
-                var btnText = document.getElementById("4");
+                var btnText = document.getElementById("2");
                 if (dots.style.display === "none") {
                     dots.style.display = "inline";
                     btnText.innerHTML  = "Показать больше";
@@ -78,44 +78,21 @@ $this->setFrameMode(true);
                     moreText.style.display = "inline";
                 }
             }
-        </script>
-        <script>
-            function showMore() {
-                var dots = document.getElementById("dots");
-                var moreText = document.getElementById("more");
-                var btnText = document.getElementById("5");
-                if (dots.style.display === "none") {
-                    dots.style.display = "inline";
-                    btnText.innerHTML  = "Показать больше";
-                    moreText.style.display = "none";
-                } else {
-                    dots.style.display = "none";
-                    btnText.innerHTML = "Показать меньше";
-                    moreText.style.display = "inline";
-                }
-            }
-        </script>
-        <script>
-            function showMore() {
-                var dots = document.getElementById("dots");
-                var moreText = document.getElementById("more");
-                var btnText = document.getElementById("1");
-                if (dots.style.display === "none") {
-                    dots.style.display = "inline";
-                    btnText.innerHTML  = "Показать больше";
-                    moreText.style.display = "none";
-                } else {
-                    dots.style.display = "none";
-                    btnText.innerHTML = "Показать меньше";
-                    moreText.style.display = "inline";
-                }
-            }
-        </script>
+        </script>-->
 
-
-        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
+        <script>
+            function showMore() {
+                $(document).ready(function () {
+                    $('<?=$arItem['ID']?>more').hide();
+                    $("<?=$arItem['ID']?>").click(function () {
+                        $(this).next().slideToggle();
+                    });
+                });
+            }
+        </script>
+        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="'.$arItem['ID'].'more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
         <button onclick="showMore()" id="<?=$arItem['ID']?>">Показать больше</button>
-        <?//echo '<pre>'.htmlspecialchars(print_r($arItem, true)).'</pre>';?>
+
         <?endif;?>
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
             <div style="clear:both"></div>
