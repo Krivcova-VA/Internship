@@ -85,7 +85,7 @@ $this->setFrameMode(true);
                 $(document).ready(function () {
                     $('.'+'<?=$arItem["ID"]?>'+'more').hide();
                     $('.'+'<?=$arItem["ID"]?>'+'qq').click(function () {
-                        $(this).next().slideToggle();
+                        $(this).next().toggle();
                     });
                 });
             }
