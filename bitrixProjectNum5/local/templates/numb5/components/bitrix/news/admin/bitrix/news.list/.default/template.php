@@ -100,7 +100,7 @@ $this->setFrameMode(true);
                 var dots = document.getElementById("dots");
                 var moreText = document.getElementById("more");
                 var btnText = document.getElementById("1");
-                if (dots.style.display === "none") {
+                if (btnText === '1' && dots.style.display === "none") {
                     dots.style.display = "inline";
                     btnText.innerHTML  = "Показать больше";
                     moreText.style.display = "none";
