@@ -61,11 +61,7 @@ $this->setFrameMode(true);
 			<?endif;?>
 		<?endif;?>
 		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-        <style>
-            #more {
-                diplay: none;
-            }
-        </style>
+
         <script>
             function showMore() {
                 var dots = document.getElementById("dots");
@@ -83,7 +79,7 @@ $this->setFrameMode(true);
             }
         </script>
         <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...
- </span><span style="display: none">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10)).'</span>';?>
+ </span><span class="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10)).'</span>';?>
         <button onclick="showMore()" id="btn">Показать больше</button>
         <?endif;?>
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
