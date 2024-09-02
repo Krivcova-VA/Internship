@@ -83,7 +83,7 @@ $this->setFrameMode(true);
             function showMore() {
                 var dots = document.getElementById("dots");
                 var moreText = document.getElementById("more");
-                var btnText = document.getElementById("2");
+                var btnText = document.getElementById("5");
                 if (dots.style.display === "none") {
                     dots.style.display = "inline";
                     btnText.innerHTML  = "Показать больше";
@@ -99,7 +99,7 @@ $this->setFrameMode(true);
             function showMore() {
                 var dots = document.getElementById("dots");
                 var moreText = document.getElementById("more");
-                var btnText = document.getElementById("1");
+                var btnText = document.getElementById("6");
                 if (dots.style.display === "none") {
                     dots.style.display = "inline";
                     btnText.innerHTML  = "Показать больше";
