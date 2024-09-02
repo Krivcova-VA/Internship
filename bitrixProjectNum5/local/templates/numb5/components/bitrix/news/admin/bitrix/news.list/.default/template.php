@@ -83,14 +83,14 @@ $this->setFrameMode(true);
         <script>
             function showMore() {
                 $(document).ready(function () {
-                    $('.more').toggle();
+                    $('.'+<?=$arItem["ID"]?>+'more').toggle();
                     $('.qwe').click(function () {
                         $(this).next().slideToggle();
                     });
                 });
             }
         </script>
-        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span class="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
+        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span class="'.$arItem["ID"].'more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
         <button onclick="showMore()" class="qwe">Показать больше</button>
 
         <?endif;?>
