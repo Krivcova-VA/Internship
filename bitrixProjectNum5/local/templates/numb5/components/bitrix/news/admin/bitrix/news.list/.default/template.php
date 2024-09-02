@@ -84,15 +84,18 @@ $this->setFrameMode(true);
         <?//echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10, 20)).'</span>';?>
         <button onclick="showMore()" id="btn">Показать больше</button>-->
         <script>
-            $(document).ready(function showMore(){
-                $('.spoiler-body').hide();
-                $('.spoiler-title').click(function showMore(){
-                    $(this).next().slideToggle();
+            function showMore() {
+                $(document).ready(function () {
+                    $('.spoiler-body').hide();
+                    $('.spoiler-title').click(function () {
+                        $(this).next().slideToggle();
+                    });
                 });
-            });
+            }
         </script>
         <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span class="spoiler-body">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10, 20)).'</span>';?>
         <button onclick="showMore()" class="spoiler-title">Показать больше</button>
+
         <?endif;?>
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
             <div style="clear:both"></div>
