@@ -79,6 +79,38 @@ $this->setFrameMode(true);
                 }
             }
         </script>
+        <script>
+            function showMore() {
+                var dots = document.getElementById("dots");
+                var moreText = document.getElementById("more");
+                var btnText = document.getElementById("2");
+                if (dots.style.display === "none") {
+                    dots.style.display = "inline";
+                    btnText.innerHTML  = "Показать больше";
+                    moreText.style.display = "none";
+                } else {
+                    dots.style.display = "none";
+                    btnText.innerHTML = "Показать меньше";
+                    moreText.style.display = "inline";
+                }
+            }
+        </script>
+        <script>
+            function showMore() {
+                var dots = document.getElementById("dots");
+                var moreText = document.getElementById("more");
+                var btnText = document.getElementById("1");
+                if (dots.style.display === "none") {
+                    dots.style.display = "inline";
+                    btnText.innerHTML  = "Показать больше";
+                    moreText.style.display = "none";
+                } else {
+                    dots.style.display = "none";
+                    btnText.innerHTML = "Показать меньше";
+                    moreText.style.display = "inline";
+                }
+            }
+        </script>
 
 
         <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
