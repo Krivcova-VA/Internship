@@ -67,7 +67,7 @@ $this->setFrameMode(true);
             function showMore() {
                 var dots = document.getElementById("dots");
                 var moreText = document.getElementById("more");
-                var btnText = '<?php echo $arResult['ID'] ?>';
+                var btnText = '<?php echo $arItem['ID'] ?>';
                 if (dots.style.display === "none") {
                     dots.style.display = "inline";
                     btnText.innerHTML  = "Показать больше";
@@ -82,8 +82,8 @@ $this->setFrameMode(true);
 
 
         <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10, 20)).'</span>';?>
-        <!--<button onclick="showMore()" id="btn">Показать больше</button>-->
-        <?echo '<pre>'.htmlspecialchars(print_r($arItem, true)).'</pre>';?>
+        <button onclick="showMore()" id="<?=$arItem['ID']?>">Показать больше</button>
+        <?//echo '<pre>'.htmlspecialchars(print_r($arItem, true)).'</pre>';?>
         <?endif;?>
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
             <div style="clear:both"></div>
