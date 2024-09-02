@@ -78,7 +78,10 @@ $this->setFrameMode(true);
                 }
             }
         </script>
-        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span class="dots">...</span><span class="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10)).'</span>';?>
+        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span style="#more {
+	diplay: none;
+	overflow: hidden;
+}">...</span><span class="more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 10)).'</span>';?>
         <!--<button onclick="showMore()" id="btn">Показать больше</button> -->
 
         <?endif;?>
