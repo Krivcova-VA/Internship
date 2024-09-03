@@ -90,7 +90,7 @@ $this->setFrameMode(true);
                 });
             }
         </script>-->
-        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="'.$arItem["ID"].'dots">...</span><span class= "'.$arItem["ID"].'more" id = "more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
+        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="'.$arItem["ID"].'dots">...</span><span class = "'.$arItem["ID"].'more" id = "more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
         <button onclick="showMore()" id="<?=$arItem["ID"]?>">Показать больше</button>
 
         <?endif;?>
