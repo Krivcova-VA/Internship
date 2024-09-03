@@ -11,4 +11,4 @@ for(let button of buttons){
 push.onclick = function (){
     push.innerHTML ="Ваша корзина пуста";
 }
-document.write(buttons[0]);
+${buttons[0]}
