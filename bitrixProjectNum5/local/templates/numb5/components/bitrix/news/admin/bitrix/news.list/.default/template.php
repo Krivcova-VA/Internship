@@ -67,7 +67,7 @@ $this->setFrameMode(true);
             function showMore() {
                 var dots = document.getElementById("<?=$arItem["ID"]?>"+"dots");
                 var moreText = document.getElementById("<?=$arItem["ID"]?>"+"more");
-                var btnText = document.getElementById("<?=$arItem["ID"]?>");
+                var btnText = document.getElementsByClassName("<?=$arItem["ID"]?>");
                 if (dots.style.display === "none") {
                     dots.style.display = "inline";
                     btnText.innerHTML  = "Показать больше";
@@ -83,15 +83,15 @@ $this->setFrameMode(true);
         <!--<script>
             function showMore() {
                 $(document).ready(function () {
-                    $('.'+'<?=$arItem["ID"]?>'+'more').toggle();
-                    $('.'+'<?=$arItem["ID"]?>'+'qq').click(function () {
-                        $('.'+'<?=$arItem["ID"]?>'+'more').toggle();
+                    $('.'+'<?//=$arItem["ID"]?>'+'more').toggle();
+                    $('.'+'<?//=$arItem["ID"]?>'+'qq').click(function () {
+                        $('.'+'<?//=$arItem["ID"]?>'+'more').toggle();
                     });
                 });
             }
         </script>-->
-        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="'.$arItem["ID"].'dots">...</span><span id= "'.$arItem["ID"].'more" class = "more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
-        <button onclick="showMore()" id="<?=$arItem["ID"]?>qq">Показать больше</button>
+        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="'.$arItem["ID"].'dots">...</span><span class= "'.$arItem["ID"].'more" id = "more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
+        <button onclick="showMore()" id="<?=$arItem["ID"]?>">Показать больше</button>
 
         <?endif;?>
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
