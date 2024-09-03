@@ -8,6 +8,6 @@ $APPLICATION->SetTitle("Административный");
     <br>
     <span id="push">Ваша корзина пуста</span>
     <button id="button">Купить</button>
-    <button onclick="alert(buttons[1])">Выведи переменную на экран</button>
+    <button onclick="alert(buttons[2])">Выведи переменную на экран</button>
     <script src="script.js"></script>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
