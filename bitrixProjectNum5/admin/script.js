@@ -1,5 +1,5 @@
 let buttons = document.querySelectorAll('button[id^="button"]');
-
+console.log(buttons[0]);
 let push = document.getElementById('push');
 let ban = document.getElementById('ban');
 for(let button of buttons) {
