@@ -6,7 +6,7 @@ $APPLICATION->SetTitle("Административный");
     <span id="push">Ваша корзина пуста</span>
     <button id="button">Купить</button>
     <br>
-    <span id="ban">Ваша корзина yt пуста</span>
+    <span id="push">Ваша корзина пуста</span>
     <button id="button">Купить</button>
 
     <script src="script.js"></script>
