@@ -63,11 +63,11 @@ $this->setFrameMode(true);
 		<?endif;?>
 		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
 
-        <!--<script>
+        <script>
             function showMore() {
-                var dots = document.getElementById("dots");
-                var moreText = document.getElementById("more");
-                var btnText = document.getElementById("2");
+                var dots = document.getElementById("<?=$arItem["ID"]?>"+"dots");
+                var moreText = document.getElementById("<?=$arItem["ID"]?>"+"more");
+                var btnText = document.getElementById("<?=$arItem["ID"]?>");
                 if (dots.style.display === "none") {
                     dots.style.display = "inline";
                     btnText.innerHTML  = "Показать больше";
@@ -78,9 +78,9 @@ $this->setFrameMode(true);
                     moreText.style.display = "inline";
                 }
             }
-        </script>-->
+        </script>
 
-        <script>
+        <!--<script>
             function showMore() {
                 $(document).ready(function () {
                     $('.'+'<?=$arItem["ID"]?>'+'more').toggle();
@@ -89,9 +89,9 @@ $this->setFrameMode(true);
                     });
                 });
             }
-        </script>
-        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="dots">...</span><span id= '.$arItem["ID"].'more class="'.$arItem["ID"].'more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
-        <button onclick="showMore()" class="<?=$arItem["ID"]?>qq">Показать больше</button>
+        </script>-->
+        <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="'.$arItem["ID"].'dots">...</span><span id= "'.$arItem["ID"].'more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
+        <button onclick="showMore()" id="<?=$arItem["ID"]?>qq">Показать больше</button>
 
         <?endif;?>
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
