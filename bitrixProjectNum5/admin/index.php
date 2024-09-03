@@ -1,4 +1,12 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Административный");
-?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?>
+
+    <span id="push">Ваша корзина пуста</span>
+<br>
+    <button id="button">Купить</button>
+    <button id="button">Купить</button>
+    <button id="button">Купить</button>
+    <script src="script.js"></script>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
