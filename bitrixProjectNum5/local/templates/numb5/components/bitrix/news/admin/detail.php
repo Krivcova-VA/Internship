@@ -128,7 +128,57 @@ $ElementID = $APPLICATION->IncludeComponent(
 		?>
 		<hr /><h3><?=GetMessage("CATEGORIES")?></h3>
 		<?foreach($arParams["CATEGORY_IBLOCK"] as $iblock_id):?>
-			<?$APPLICATION->IncludeComponent(
+        <?php// 1. Получаем данные по выбранному элементу: его название и поисковыве теги
+
+        $CurentElement=intval($_GET["ID"]); // берем ID текущей статьи из адресной строки
+
+        // 2. Получаем данные по выбранному элементу:
+
+        $res = CIBlockElement::GetByID($CurentElement);
+        if($ar_res = $res->GetNext())
+        $arCurentElement=$ar_res;
+
+        // 3. Из названия и поисковых тегов формируем строку, по словам которой будем искать все похожие записи:
+
+        $tmpName=str_replace(
+        array(".", ",","?","!","-"),
+        "",
+        trim($arCurentElement["NAME"]." ".$arCurentElement["TAGS"])
+        );
+
+        /*знаю, что кусок кода выше можно было сделать проще через регулярные выражения. Но, к сожалению, я с ними не дружу:( */
+
+        if(strlen($tmpName)>0){
+        $arLooksLike = array(
+        "INCLUDE_SUBSECTIONS" => "Y",
+        "!ID"=>intval($CurentElement)  /*исключаем данный элемент из выборки*/
+        );
+        $NameItems=explode(" ",$tmpName);
+
+        /* кто умеет пользоваться регулярными выражениями - можете предварительно не очищать от знаков пунктуации,
+        а сразу тут выбирать уже массив готовых результатов */
+
+        $itemsArray=array();
+        foreach($NameItems as $item){
+        if(strlen($item)>1){
+        $itemsArray[]=array("NAME" => "%".$item."%");  // ищем элементы, у которых выбранное свойство есть в названии
+        $itemsArray[]=array("TAGS" => "%".$item."%");  // ищем элементы, у которых выбранное свойство есть в поисковых тегах
+        }
+        }
+        $tmpArray=array("LOGIC" => "OR");  // подключаем логику "ИЛИ"
+
+        следующие 2 операции, думаю, можно ужать, но не стал заморачиваться: и так работает.
+
+        $tmpArray=array_merge($tmpArray,$itemsArray);
+
+        $addFArray=array(
+        array($tmpArray),
+        );
+        $GLOBALS["arLooksLike"]=array_merge($arLooksLike,$addFArray);
+
+        }?>
+
+            <?$APPLICATION->IncludeComponent(
 				"bitrix:news.list",
 				$arParams["CATEGORY_THEME_".$iblock_id],
 				[
@@ -139,7 +189,7 @@ $ElementID = $APPLICATION->IncludeComponent(
 					"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 					"CACHE_TIME" => $arParams["CACHE_TIME"],
 					"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-					"FILTER_NAME" => "arCategoryFilter",
+					"FILTER_NAME" => "arLooksLike",
 					"CACHE_FILTER" => "Y",
 					"DISPLAY_TOP_PAGER" => "N",
 					"DISPLAY_BOTTOM_PAGER" => "N",
