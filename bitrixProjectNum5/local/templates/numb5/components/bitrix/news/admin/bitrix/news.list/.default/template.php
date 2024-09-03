@@ -64,21 +64,37 @@ $this->setFrameMode(true);
 		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
 
         <script>
-            function showMore() {
-                var dots = document.getElementById("<?=$arItem["ID"]?>"+"dots");
-                var moreText = document.getElementById("<?=$arItem["ID"]?>"+"more");
-                var btnText = document.getElementById("<?=$arItem["ID"]?>");
-                if (dots.style.display === "none") {
+            let buttons = document.querySelectorAll('button[id^="one"]');
+            let dots = document.getElementById("<?=$arItem["ID"]?>"+"dots");
+            let btnText= document.getElementById('one');
+            let moreText = document.getElementById("<?=$arItem["ID"]?>"+"more");
+            for(let button of buttons){
+                button.addEventListener('click',function() {
                     dots.style.display = "inline";
                     btnText.innerHTML  = "Показать больше";
                     moreText.style.display = "none";
-                } else {
-                    dots.style.display = "none";
-                    btnText.innerHTML = "Показать меньше";
-                    moreText.style.display = "inline";
-                }
+                })
             }
+            btnText.onclick = function () {
+                dots.style.display = "none";
+                btnText.innerHTML = "Показать меньше";
+                moreText.style.display = "inline";
+            }
+            // function showMore() {
+            //
+            //     if (dots.style.display === "none") {
+            //         dots.style.display = "inline";
+            //         btnText.innerHTML  = "Показать больше";
+            //         moreText.style.display = "none";
+            //     } else {
+            //         dots.style.display = "none";
+            //         btnText.innerHTML = "Показать меньше";
+            //         moreText.style.display = "inline";
+            //     }
+            // }
         </script>
+
+
 
         <!--<script>
             function showMore() {
@@ -91,7 +107,7 @@ $this->setFrameMode(true);
             }
         </script>-->
         <?echo implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 0,10)).'<span id="'.$arItem["ID"].'dots">...</span><span id = "'.$arItem["ID"].'more" class = "more">'.implode(' ', array_slice(explode(' ', $arItem["PREVIEW_TEXT"]), 8)).'</span>';?>
-        <button onclick="showMore()" id="<?=$arItem["ID"]?>">Показать больше</button>
+        <button id="one">Показать больше</button>
 
         <?endif;?>
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
