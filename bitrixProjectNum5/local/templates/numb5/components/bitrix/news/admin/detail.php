@@ -138,7 +138,7 @@ $ElementID = $APPLICATION->IncludeComponent(
         if($ar_res = $res->GetNext())
         $arCurentElement=$ar_res;
 
-        // 3. Из названия и поисковых тегов формируем строку, по словам которой будем искать все похожие записи:
+        //3. Из названия и поисковых тегов формируем строку, по словам которой будем искать все похожие записи:
 
         $tmpName=str_replace(
         array(".", ",","?","!","-"),
@@ -153,7 +153,7 @@ $ElementID = $APPLICATION->IncludeComponent(
         "INCLUDE_SUBSECTIONS" => "Y",
         "!ID"=> (int)$CurentElement  /*исключаем данный элемент из выборки*/
         );
-        $NameItems=explode(" ",$tmpName);
+        $NameItems = explode(" ",$tmpName);
 
         /* кто умеет пользоваться регулярными выражениями - можете предварительно не очищать от знаков пунктуации,
         а сразу тут выбирать уже массив готовых результатов */
