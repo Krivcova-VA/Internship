@@ -130,7 +130,7 @@ $ElementID = $APPLICATION->IncludeComponent(
 		<?foreach($arParams["CATEGORY_IBLOCK"] as $iblock_id):?>
         <?php// 1. Получаем данные по выбранному элементу: его название и поисковыве теги
 
-        $CurentElement=intval($_GET["ID"]); // берем ID текущей статьи из адресной строки
+        $CurentElement=(int)$_GET["ID"]; // берем ID текущей статьи из адресной строки
 
         // 2. Получаем данные по выбранному элементу:
 
@@ -151,7 +151,7 @@ $ElementID = $APPLICATION->IncludeComponent(
         if(strlen($tmpName)>0){
         $arLooksLike = array(
         "INCLUDE_SUBSECTIONS" => "Y",
-        "!ID"=>intval($CurentElement)  /*исключаем данный элемент из выборки*/
+        "!ID"=> (int)$CurentElement  /*исключаем данный элемент из выборки*/
         );
         $NameItems=explode(" ",$tmpName);
 
