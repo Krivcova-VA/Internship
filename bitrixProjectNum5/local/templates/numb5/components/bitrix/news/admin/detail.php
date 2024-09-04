@@ -125,11 +125,10 @@ $ElementID = $APPLICATION->IncludeComponent(
 			"PROPERTY_".$arParams["CATEGORY_CODE"] => array_keys($arCategoryFilter),
 			"!"."ID" => $ElementID,
 		);
-		?>
-		<hr /><h3><?=GetMessage("CATEGORIES")?></h3>
 
-        <?// 1. Получаем данные по выбранному элементу: его название и поисковыве теги
 
+        // 1. Получаем данные по выбранному элементу: его название и поисковыве теги
+        global $arLooksLike;
         $CurentElement=(int)$_GET["ID"]; // берем ID текущей статьи из адресной строки
 
         // 2. Получаем данные по выбранному элементу:
@@ -176,6 +175,10 @@ $ElementID = $APPLICATION->IncludeComponent(
 
         }?>
 
+		<hr /><h3><?=GetMessage("CATEGORIES")?></h3>
+
+
+
 		<?foreach($arParams["CATEGORY_IBLOCK"] as $iblock_id):?>
 
 
@@ -190,7 +193,7 @@ $ElementID = $APPLICATION->IncludeComponent(
 					"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 					"CACHE_TIME" => $arParams["CACHE_TIME"],
 					"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-					"FILTER_NAME" => "arCategoryFilter",
+					"FILTER_NAME" => "arLooksLike",
 					"CACHE_FILTER" => "Y",
 					"DISPLAY_TOP_PAGER" => "N",
 					"DISPLAY_BOTTOM_PAGER" => "N",
