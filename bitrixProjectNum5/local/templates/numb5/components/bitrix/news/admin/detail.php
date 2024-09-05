@@ -146,7 +146,6 @@ $ElementID = $APPLICATION->IncludeComponent(
         );
 
         /*знаю, что кусок кода выше можно было сделать проще через регулярные выражения. Но, к сожалению, я с ними не дружу:( */
-
         if(strlen($tmpName)>0){
             $arLooksLike = array(
                 "INCLUDE_SUBSECTIONS" => "Y",
@@ -172,10 +171,10 @@ $ElementID = $APPLICATION->IncludeComponent(
                 array($tmpArray),
             );
             $GLOBALS["arLooksLike"]=array_merge($arLooksLike,$addFArray);
-
+        echo '<pre>'.htmlspecialchars(print_r($arResult, true)).'</pre>';
         }?>
 
-		<hr /><h3><?=GetMessage("CATEGORIES")?></h3>
+		<hr /><h3>Предложенные новости<?=GetMessage("CATEGORIES")?></h3>
 
 
 
@@ -193,7 +192,7 @@ $ElementID = $APPLICATION->IncludeComponent(
 					"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 					"CACHE_TIME" => $arParams["CACHE_TIME"],
 					"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-					"FILTER_NAME" => "arLooksLike",
+					"FILTER_NAME" => "arCategoryFilter",
 					"CACHE_FILTER" => "Y",
 					"DISPLAY_TOP_PAGER" => "N",
 					"DISPLAY_BOTTOM_PAGER" => "N",
