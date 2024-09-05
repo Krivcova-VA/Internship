@@ -128,11 +128,11 @@ $ElementID = $APPLICATION->IncludeComponent(
 
         // 1. Получаем данные по выбранному элементу: его название и поисковыве теги
 
-        $CurentElement=intval($_GET["ID"]); // берем ID текущей статьи из адресной строки
+         // берем ID текущей статьи из адресной строки
 
 // 2. Получаем данные по выбранному элементу:
 
-        $res = CIBlockElement::GetByID($CurentElement);
+        $res = CIBlockElement::GetByID($ElementID);
         if($ar_res = $res->GetNext())
             $arCurentElement=$ar_res;
 
@@ -149,7 +149,7 @@ $ElementID = $APPLICATION->IncludeComponent(
         if(strlen($tmpName)>0){
             $arLooksLike = array(
                 "INCLUDE_SUBSECTIONS" => "Y",
-                "!ID"=>intval($CurentElement)  /*исключаем данный элемент из выборки*/
+                "!ID"=> $ElementID  /*исключаем данный элемент из выборки*/
             );
             $NameItems=explode(" ",$tmpName);
 
@@ -174,7 +174,7 @@ $ElementID = $APPLICATION->IncludeComponent(
 
 }
     ?>
-        <?echo '<pre>'.htmlspecialchars(print_r($ElementID, true)).'</pre>';?>
+
         <hr /><h3>Предложенные новости<?=GetMessage("CATEGORIES")?></h3>
 
 
@@ -193,7 +193,7 @@ $ElementID = $APPLICATION->IncludeComponent(
 					"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 					"CACHE_TIME" => $arParams["CACHE_TIME"],
 					"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-					"FILTER_NAME" => "arCategoryFilter",
+					"FILTER_NAME" => "arLooksLike",
 					"CACHE_FILTER" => "Y",
 					"DISPLAY_TOP_PAGER" => "N",
 					"DISPLAY_BOTTOM_PAGER" => "N",
