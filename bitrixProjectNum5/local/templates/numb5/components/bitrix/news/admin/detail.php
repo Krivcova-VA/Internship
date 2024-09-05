@@ -141,7 +141,7 @@ $ElementID = $APPLICATION->IncludeComponent(
         $tmpName=str_replace(
             array(".", ",","?","!","-"),
             "",
-            trim($arCurentElement["NAME"]." ".$arCurentElement["TAGS"])
+            trim($arCurentElement["NAME"])
         );
 
         /*знаю, что кусок кода выше можно было сделать проще через регулярные выражения. Но, к сожалению, я с ними не дружу:( */
@@ -160,7 +160,7 @@ $ElementID = $APPLICATION->IncludeComponent(
             foreach($NameItems as $item){
                 if(strlen($item)>1){
                     $itemsArray[]=array("NAME" => "%".$item."%");  // ищем элементы, у которых выбранное свойство есть в названии
-                    $itemsArray[]=array("TAGS" => "%".$item."%");  // ищем элементы, у которых выбранное свойство есть в поисковых тегах
+
                 }
             }
             $tmpArray=array("LOGIC" => "OR");  // подключаем логику "ИЛИ" следующие 2 операции, думаю, можно ужать, но не стал заморачиваться: и так работает.
