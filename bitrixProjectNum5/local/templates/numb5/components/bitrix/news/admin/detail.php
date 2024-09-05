@@ -125,54 +125,7 @@ $ElementID = $APPLICATION->IncludeComponent(
 			"PROPERTY_".$arParams["CATEGORY_CODE"] => array_keys($arCategoryFilter),
 			"!"."ID" => $ElementID,
 		);
-
-
-        // 1. Получаем данные по выбранному элементу: его название и поисковыве теги
-        global $arLooksLike;
-        $CurentElement=(int)$_GET["ID"]; // берем ID текущей статьи из адресной строки
-
-        // 2. Получаем данные по выбранному элементу:
-
-        $res = CIBlockElement::GetByID($CurentElement);
-        if($ar_res = $res->GetNext())
-            $arCurentElement=$ar_res;
-
-        //3. Из названия и поисковых тегов формируем строку, по словам которой будем искать все похожие записи:
-
-        $tmpName=str_replace(
-            array(".", ",","?","!","-"),
-            "",
-            trim($arCurentElement["NAME"]." ".$arCurentElement["TAGS"])
-        );
-
-        /*знаю, что кусок кода выше можно было сделать проще через регулярные выражения. Но, к сожалению, я с ними не дружу:( */
-        if(strlen($tmpName)>0){
-            $arLooksLike = array(
-                "INCLUDE_SUBSECTIONS" => "Y",
-                "!ID"=> (int)$CurentElement  /*исключаем данный элемент из выборки*/
-            );
-            $NameItems = explode(" ",$tmpName);
-
-            /* кто умеет пользоваться регулярными выражениями - можете предварительно не очищать от знаков пунктуации,
-            а сразу тут выбирать уже массив готовых результатов */
-
-            $itemsArray=array();
-            foreach($NameItems as $item){
-                if(strlen($item)>1){
-                    $itemsArray[]=array("NAME" => "%".$item."%");  // ищем элементы, у которых выбранное свойство есть в названии
-                    $itemsArray[]=array("TAGS" => "%".$item."%");  // ищем элементы, у которых выбранное свойство есть в поисковых тегах
-                }
-            }
-            $tmpArray=array("LOGIC" => "OR");  // подключаем логику "ИЛИ" следующие 2 операции, думаю, можно ужать, но не стал заморачиваться: и так работает.
-
-            $tmpArray=array_merge($tmpArray,$itemsArray);
-
-            $addFArray=array(
-                array($tmpArray),
-            );
-            $GLOBALS["arLooksLike"]=array_merge($arLooksLike,$addFArray);
-        //echo '<pre>'.htmlspecialchars(print_r($arResult, true)).'</pre>';
-        }?>
+    ?>
 
 		<hr /><h3>Предложенные новости<?=GetMessage("CATEGORIES")?></h3>
 
