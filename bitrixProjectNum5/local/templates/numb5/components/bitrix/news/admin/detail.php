@@ -171,7 +171,7 @@ $ElementID = $APPLICATION->IncludeComponent(
                 array($tmpArray),
             );
             $GLOBALS["arLooksLike"]=array_merge($arLooksLike,$addFArray);
-        echo '<pre>'.htmlspecialchars(print_r($arResult, true)).'</pre>';
+        //echo '<pre>'.htmlspecialchars(print_r($arResult, true)).'</pre>';
         }?>
 
 		<hr /><h3>Предложенные новости<?=GetMessage("CATEGORIES")?></h3>
