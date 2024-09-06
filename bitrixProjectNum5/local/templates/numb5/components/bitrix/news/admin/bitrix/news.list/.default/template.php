@@ -28,7 +28,7 @@ $this->setFrameMode(true);
 	<p class="news-item" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
 			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
-				<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img
+				<a href="<?=$arItem["DETAIL_PAGE_URL"]?>" target="_blank"><img
 						class="preview_picture"
 						border="0"
 						src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
