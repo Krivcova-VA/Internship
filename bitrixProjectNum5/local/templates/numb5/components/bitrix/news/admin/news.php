@@ -113,4 +113,4 @@ $APPLICATION->IncludeComponent(
 	$component,
 	['HIDE_ICONS' => 'Y']
 );
-<?echo '<pre>'.htmlspecialchars(print_r($arResult["URL_TEMPLATES"], true)).'</pre>';?>
+echo '<pre>'.htmlspecialchars(print_r($arResult["URL_TEMPLATES"], true)).'</pre>';?>
