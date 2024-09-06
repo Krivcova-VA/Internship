@@ -73,7 +73,7 @@ $APPLICATION->IncludeComponent(
 		"SORT_ORDER2" => $arParams["SORT_ORDER2"],
 		"FIELD_CODE" => $arParams["LIST_FIELD_CODE"],
 		"PROPERTY_CODE" => $arParams["LIST_PROPERTY_CODE"],
-		"DETAIL_URL" => $arResult["FOLDER"].'/admin/iblock/detail.php/?ELEMENT_ID=#ELEMENT_ID#',
+		"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["detail"],
 		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
 		"IBLOCK_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"],
 		"SET_TITLE" => $arParams["SET_TITLE"],
@@ -113,4 +113,3 @@ $APPLICATION->IncludeComponent(
 	$component,
 	['HIDE_ICONS' => 'Y']
 );
-echo '<pre>'.htmlspecialchars(print_r($arResult["URL_TEMPLATES"], true)).'</pre>';?>
