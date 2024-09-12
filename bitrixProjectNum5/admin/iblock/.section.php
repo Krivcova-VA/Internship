@@ -1,6 +1,0 @@
-<?
-$sSectionName = "Инфоблоки";
-$arDirProperties = Array(
-
-);
-?>

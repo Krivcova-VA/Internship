@@ -1,6 +1,0 @@
-<?
-$sSectionName = "Административный";
-$arDirProperties = Array(
-
-);
-?>
