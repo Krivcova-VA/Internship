@@ -1,7 +1,7 @@
 <?php 
 declare(strict_types=1); 
 define('APP_PAGE', 'auth'); 
-require __DIR__ . '/bootstrap.php'; 
+require __DIR__ . '/start.php'; 
 $register = ($_GET['form'] ?? '') === 'register'; 
 if ($post && !$register) { 
     $identity = identityValue(input('identity')); 
@@ -15,9 +15,9 @@ if ($post && !$register) {
         $stmt->execute([$identity[1]]); 
         $found = $stmt->fetch();
         if ($found && checkPassword($password, $found['password'])) {
-            signIn((int)$found['id'], (int)$found['session_version']); 
-            redirect('/profile.php'); 
-        } 
+            authSet($config, (int)$found['id']);
+            redirect('/profile.php');
+        }
         $errors[] = 'Неверный телефон/email или пароль.'; 
     } 
 }
@@ -32,9 +32,9 @@ if ($post && $register) {
         try {
             $stmt = $db->prepare('INSERT INTO users (name,login,phone,email,password) VALUES (?,?,?,?,?)'); 
             $stmt->execute([$data['name'], $data['login'], $data['phone'], $data['email'], encodePassword(input('password'))]);
-            $newId = (int)$db->lastInsertId(); 
-            signIn($newId, 1); 
-            $_SESSION['notice'] = 'Регистрация завершена. Добро пожаловать!'; 
+            $newId = (int)$db->lastInsertId();
+            authSet($config, $newId);
+            redirect('/profile.php?notice=' . urlencode('Регистрация завершена. Добро пожаловать!'));
             redirect('/profile.php'); 
         } catch (PDOException $error) { 
             if ((int)($error->errorInfo[1] ?? 0) !== 1062) { throw $error; } 

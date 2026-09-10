@@ -16,11 +16,27 @@ function redirect(string $url): never {
     exit; 
 }
 /*авторизация пользователя*/
-function signIn(int $id, int $version): void {
-    session_regenerate_id(true);
-    $_SESSION['uid'] = $id; 
-    $_SESSION['version'] = $version; 
-   
+function authSet(array $config, int $id): void {
+    setcookie($config['auth_cookie'], (string)$id, [
+        'expires' => time() + 60 * 60 * 24 * 30,
+        'path' => '/',
+        'httponly' => true,
+    ]);
+    $_COOKIE[$config['auth_cookie']] = (string)$id;
+}
+
+function authClear(array $config): void {
+    setcookie($config['auth_cookie'], '', [
+        'expires' => time() - 3600,
+        'path' => '/',
+        'httponly' => true,
+    ]);
+    unset($_COOKIE[$config['auth_cookie']]);
+}
+
+function authRead(array $config): ?int {
+    $raw = $_COOKIE[$config['auth_cookie']] ?? '';
+    return ctype_digit((string)$raw) ? (int)$raw : null;
 } 
 /*проверка email*/
 function emailValue(string $raw): ?string { 

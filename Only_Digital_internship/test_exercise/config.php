@@ -8,5 +8,5 @@ return [
     'captcha_secret' => '',
     'captcha_hosts' => ['testexercise.teambtest.ru'],
     'secure_cookie' => false, 
-    'session_name' => 'auth_plaintext',
+    'auth_cookie' => 'auth_uid',
 ];

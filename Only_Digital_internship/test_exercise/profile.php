@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 define('APP_PAGE', 'profile'); 
-require __DIR__ . '/bootstrap.php'; 
+require __DIR__ . '/start.php'; 
 if ($post) { 
     [$data, $errors] = personalData($user['login']);
     if (!checkPassword(input('current_password'), $user['password'])) { $errors[] = 'Текущий пароль неверен.'; } 
@@ -14,12 +14,9 @@ if ($post) {
         try { 
             $stmt = $db->prepare('UPDATE users SET name=?,phone=?,email=?,password=?,session_version=session_version+1 WHERE id=? AND session_version=?');
             $stmt->execute([$data['name'], $data['phone'], $data['email'], $password, $user['id'], $user['session_version']]);
-            if ($stmt->rowCount() !== 1) { 
-                unset($_SESSION['uid'], $_SESSION['version']); 
-                redirect('/index.php'); 
-            } 
-            signIn((int)$user['id'], (int)$user['session_version'] + 1); 
-            $_SESSION['notice'] = 'Профиль сохранён.'; 
+            
+            authSet($config, (int)$user['id']);
+            redirect('/profile.php?notice=' . urlencode('Профиль сохранён.')); 
             redirect('/profile.php'); 
         } catch (PDOException $error) { 
             if ((int)($error->errorInfo[1] ?? 0) !== 1062) { throw $error; } 
