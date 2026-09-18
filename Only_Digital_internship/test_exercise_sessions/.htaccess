@@ -1,0 +1,5 @@
+DirectoryIndex index.php
+
+<FilesMatch "^(start\.php|config\.php|lib\.php|auth_plaintext\.sql)$">
+    Require all denied
+</FilesMatch>
