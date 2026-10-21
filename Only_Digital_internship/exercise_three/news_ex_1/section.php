@@ -60,6 +60,9 @@ $APPLICATION->IncludeComponent(
 	Array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+		"PARENT_SECTION" => $arResult["VARIABLES"]["SECTION_ID"],
+		"PARENT_SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+		"INCLUDE_SUBSECTIONS" => "N",
 		"NEWS_COUNT" => $arParams["NEWS_COUNT"],
 		"SORT_BY1" => $arParams["SORT_BY1"],
 		"SORT_ORDER1" => $arParams["SORT_ORDER1"],
